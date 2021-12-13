@@ -1,0 +1,531 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21657,        523]
+NotebookOptionsPosition[     20553,        496]
+NotebookOutlinePosition[     20947,        512]
+CellTagsIndexPosition[     20904,        509]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Vizualiz\[AAcute]cia triediacich algoritmov", "Title",
+ CellChangeTimes->{{3.8481552419642363`*^9, 
+  3.8481552859660797`*^9}},ExpressionUUID->"63ba59d5-32a4-472f-9123-\
+2c79995437e2"],
+
+Cell[BoxData[""], "Input",ExpressionUUID->"87ed80e4-1e0d-421c-9eac-c046be8bc218"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Vizualiz\[AAcute]cia triediacich algoritmov pomocou grafov s \
+postupn\[YAcute]mi krokmi algoritmu\
+\>", "Subtitle",
+ CellChangeTimes->{{3.848155319184545*^9, 
+  3.8481553523189363`*^9}},ExpressionUUID->"c224bc89-e79b-4a4e-85cb-\
+35c52df77667"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"li", "=", 
+    RowBox[{"RandomSample", "[", 
+     RowBox[{"Range", "[", "7", "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"randomize", "[", "n1_", "]"}], ":=", 
+   RowBox[{"(", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"li1", "=", 
+      RowBox[{"RandomSample", "[", 
+       RowBox[{"Range", "[", "n1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"liBubble", "=", 
+      RowBox[{"{", "}"}]}], ";", 
+     RowBox[{"liBubble", "=", 
+      RowBox[{"Append", "[", 
+       RowBox[{"liBubble", ",", "li1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     
+     RowBox[{"BuSort", "[", 
+      RowBox[{"liBubble", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "\[IndentingNewLine]", 
+    ")"}]}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"liInitial", "=", "li"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"li", "=", 
+    RowBox[{"RandomSample", "[", 
+     RowBox[{"Range", "[", "10", "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"liBubble", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"liBubble", "=", 
+    RowBox[{"Append", "[", 
+     RowBox[{"liBubble", ",", "li"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BuSort", "[", "array5_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"arr", "=", "array5"}], ",", 
+       RowBox[{"swapped", "=", "False"}], ",", 
+       RowBox[{"n", "=", 
+        RowBox[{"Length", "[", "array5", "]"}]}]}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"Do", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"arr", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], ">", 
+           RowBox[{"arr", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", "+", "1"}], "]"}], "]"}]}], ",", 
+          RowBox[{
+           RowBox[{"temp", "=", 
+            RowBox[{"arr", "[", 
+             RowBox[{"[", "i", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"arr", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "=", 
+            RowBox[{"arr", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", "+", "1"}], "]"}], "]"}]}], ";", 
+           RowBox[{
+            RowBox[{"arr", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", "+", "1"}], "]"}], "]"}], "=", "temp"}], ";", 
+           RowBox[{"swapped", "=", "True"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"liBubble", "=", 
+            RowBox[{"Append", "[", 
+             RowBox[{"liBubble", ",", "arr"}], "]"}]}], ";"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", 
+          RowBox[{"n", "-", "1"}]}], "}"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"While", "[", 
+       RowBox[{
+        RowBox[{"swapped", "\[Equal]", "True"}], ",", 
+        RowBox[{
+         RowBox[{"swapped", "=", "False"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Do", "[", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"arr", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], ">", 
+              RowBox[{"arr", "[", 
+               RowBox[{"[", 
+                RowBox[{"i", "+", "1"}], "]"}], "]"}]}], ",", 
+             RowBox[{
+              RowBox[{"temp", "=", 
+               RowBox[{"arr", "[", 
+                RowBox[{"[", "i", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+              
+              RowBox[{
+               RowBox[{"arr", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "=", 
+               RowBox[{"arr", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", "+", "1"}], "]"}], "]"}]}], ";", 
+              RowBox[{
+               RowBox[{"arr", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", "+", "1"}], "]"}], "]"}], "=", "temp"}], ";", 
+              RowBox[{"swapped", "=", "True"}], ";", "\[IndentingNewLine]", 
+              RowBox[{"liBubble", "=", 
+               RowBox[{"Append", "[", 
+                RowBox[{"liBubble", ",", "arr"}], "]"}]}], ";"}]}], "]"}], 
+           ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "1", ",", 
+             RowBox[{"n", "-", "1"}]}], "}"}]}], "]"}]}]}], "]"}], ";", 
+      "arr"}]}], "]"}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"checkSorted", "[", "array4_", "]"}], ":=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"sorted", " ", "=", " ", "True"}], ";", " ", 
+     RowBox[{"Do", "[", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"array4", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], ">", 
+          RowBox[{"array4", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", "+", "1"}], "]"}], "]"}]}], ",", 
+         RowBox[{
+          RowBox[{"sorted", "=", "False"}], ";", 
+          RowBox[{"Break", "[", "]"}]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{
+          RowBox[{"Length", "[", "array4", "]"}], "-", "1"}]}], "}"}]}], 
+      "]"}], ";", "sorted"}], ")"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BuSort", "[", 
+    RowBox[{"liBubble", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Print", "[", "liBubble", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Pane", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Which", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"sort", "\[Equal]", "\"\<shellsort\>\""}], ",", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"step", ">", 
+           RowBox[{"Length", "[", "liShell", "]"}]}], ",", 
+          RowBox[{"step", " ", "=", " ", "1"}]}], "]"}], ";", 
+        RowBox[{"shellsort", "[", "step", "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"sort", "\[Equal]", "\"\<bubblesort\>\""}], ",", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"step", ">", 
+           RowBox[{"Length", "[", "liBubble", "]"}]}], ",", 
+          RowBox[{"step", " ", "=", " ", "1"}]}], "]"}], ";", 
+        RowBox[{"bubblesort", "[", "step", "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"sort", "\[Equal]", "\"\<insertionsort\>\""}], ",", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"step", ">", 
+           RowBox[{"Length", "[", "liInsert", "]"}]}], ",", 
+          RowBox[{"step", " ", "=", " ", "1"}]}], "]"}], ";", 
+        RowBox[{"insertionsort", "[", "step", "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"sort", "\[Equal]", "\"\<cocktail\>\""}], ",", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"step", ">", 
+           RowBox[{"Length", "[", "liCocktail", "]"}]}], ",", 
+          RowBox[{"step", " ", "=", " ", "1"}]}], "]"}], ";", 
+        RowBox[{"cocktail", "[", "step", "]"}]}], ",", "\[IndentingNewLine]", 
+       
+       RowBox[{"sort", "\[Equal]", "\"\<bogosort\>\""}], ",", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"step", ">", 
+           RowBox[{"Length", "[", "liBogo", "]"}]}], ",", 
+          RowBox[{"step", " ", "=", " ", "1"}]}], "]"}], ";", 
+        RowBox[{"bogosort", "[", "step", "]"}]}]}], "\[IndentingNewLine]", 
+      "]"}], ",", 
+     RowBox[{"Alignment", "\[Rule]", "Center"}], ",", 
+     RowBox[{"ImageSize", " ", "\[Rule]", " ", 
+      RowBox[{"{", 
+       RowBox[{"575", ",", "400"}], "}"}]}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "elements", ",", "10", ",", 
+       "\"\<elements\\n(set, then click \\\"randomize\\\")\>\""}], "}"}], ",",
+      "10", ",", "150", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"step", ",", "1", ",", 
+     RowBox[{"Which", "[", 
+      RowBox[{
+       RowBox[{"sort", "\[Equal]", "\"\<shellsort\>\""}], ",", 
+       RowBox[{"Length", "[", "liShell", "]"}], ",", 
+       RowBox[{"sort", "\[Equal]", "\"\<bubblesort\>\""}], ",", 
+       RowBox[{"Length", "[", "liBubble", "]"}], ",", 
+       RowBox[{"sort", "\[Equal]", "\"\<insertionsort\>\""}], ",", 
+       RowBox[{"Length", "[", "liInsert", "]"}], ",", 
+       RowBox[{"sort", "\[Equal]", "\"\<cocktail\>\""}], ",", 
+       RowBox[{"Length", "[", "liCocktail", "]"}], ",", 
+       RowBox[{"sort", "\[Equal]", "\"\<bogosort\>\""}], ",", 
+       RowBox[{"Length", "[", "liBogo", "]"}]}], "]"}], ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", " ", 
+     RowBox[{"ControlType", "\[Rule]", "Animator"}], ",", " ", 
+     RowBox[{"AnimationRunning", "\[Rule]", "False"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Control", "@", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"sort", ",", "\"\<shellsort\>\""}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<shellsort\>\"", ",", "\"\<bubblesort\>\"", ",", 
+           "\"\<insertionsort\>\"", ",", "\"\<cocktail\>\"", ",", 
+           "\"\<bogosort\>\""}], "}"}], ",", 
+         RowBox[{"ControlType", "\[Rule]", "SetterBar"}]}], "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Spacer", "[", "20", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<randomize\>\"", ",", 
+        RowBox[{
+         RowBox[{"randomize", "[", "elements", "]"}], ";", 
+         RowBox[{"step", "=", "2"}], ";", 
+         RowBox[{"step", "=", "1"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"ImageSize", "\[Rule]", "Automatic"}]}], 
+       "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "}"}], "]"}], 
+   ",", "\[IndentingNewLine]", " ", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}], ",", 
+   RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+    RowBox[{"{", 
+     RowBox[{"elements", ",", "step", ",", "sort"}], "}"}]}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.848155977572205*^9, 3.848155998809819*^9}, {
+   3.848156068912058*^9, 3.848156099971677*^9}, {3.8481563291146*^9, 
+   3.84815633160001*^9}, 3.848156516201305*^9, {3.8481577484630127`*^9, 
+   3.848157824677512*^9}, {3.848157876160968*^9, 3.8481579063734713`*^9}, {
+   3.848157963125867*^9, 3.848158039201804*^9}, {3.848158601951601*^9, 
+   3.848158602436956*^9}, {3.848158648065037*^9, 3.848158702010973*^9}, {
+   3.84815874519623*^9, 3.848158751070178*^9}, {3.848158937841077*^9, 
+   3.848158979542769*^9}},ExpressionUUID->"f068b1a4-ed65-4b9c-8826-\
+9246450b7681"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "5", ",", "7", ",", "10", ",", "3", ",", "9", ",", "8", ",", "1", ",", "6", 
+   ",", "2", ",", "4"}], "}"}]], "Print",
+ CellChangeTimes->{
+  3.848158754612513*^9, {3.8481589508191338`*^9, 3.84815897004631*^9}},
+ CellLabel->
+  "During evaluation of \
+In[86]:=",ExpressionUUID->"7d9a2d24-72af-4668-a9d3-ad3738a6cf9b"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`elements$$ = 10, $CellContext`sort$$ = 
+    "shellsort", $CellContext`step$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`elements$$], 10, 
+       "elements\n(set, then click \"randomize\")"}, 10, 150, 1}, {
+      Hold[$CellContext`step$$], 1, 
+      Dynamic[
+       Which[$CellContext`sort$$ == "shellsort", 
+        Length[$CellContext`liShell], $CellContext`sort$$ == "bubblesort", 
+        Length[$CellContext`liBubble], $CellContext`sort$$ == "insertionsort", 
+        Length[$CellContext`liInsert], $CellContext`sort$$ == "cocktail", 
+        Length[$CellContext`liCocktail], $CellContext`sort$$ == "bogosort", 
+        Length[$CellContext`liBogo]]], 1}, {{
+       Hold[$CellContext`sort$$], "shellsort"}, {
+      "shellsort", "bubblesort", "insertionsort", "cocktail", "bogosort"}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Spacer[20], 
+         Button[
+         "randomize", $CellContext`randomize[$CellContext`elements$$]; \
+$CellContext`step$$ = 2; $CellContext`step$$ = 1, ImageSize -> Automatic]}]], 
+      Manipulate`Dump`ThisIsNotAControl}}, Typeset`size$$ = {
+    575., {197., 203.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`elements$$ = 10, $CellContext`sort$$ = 
+        "shellsort", $CellContext`step$$ = 1}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Pane[
+        Which[$CellContext`sort$$ == "shellsort", 
+         If[$CellContext`step$$ > 
+           Length[$CellContext`liShell], $CellContext`step$$ = 
+           1]; $CellContext`shellsort[$CellContext`step$$], \
+$CellContext`sort$$ == "bubblesort", 
+         If[$CellContext`step$$ > 
+           Length[$CellContext`liBubble], $CellContext`step$$ = 
+           1]; $CellContext`bubblesort[$CellContext`step$$], \
+$CellContext`sort$$ == "insertionsort", 
+         If[$CellContext`step$$ > 
+           Length[$CellContext`liInsert], $CellContext`step$$ = 
+           1]; $CellContext`insertionsort[$CellContext`step$$], \
+$CellContext`sort$$ == "cocktail", 
+         If[$CellContext`step$$ > 
+           Length[$CellContext`liCocktail], $CellContext`step$$ = 
+           1]; $CellContext`cocktail[$CellContext`step$$], \
+$CellContext`sort$$ == "bogosort", 
+         If[$CellContext`step$$ > 
+           Length[$CellContext`liBogo], $CellContext`step$$ = 
+           1]; $CellContext`bogosort[$CellContext`step$$]], Alignment -> 
+        Center, ImageSize -> {575, 400}], 
+      "Specifications" :> {{{$CellContext`elements$$, 10, 
+          "elements\n(set, then click \"randomize\")"}, 10, 150, 1, 
+         Appearance -> "Labeled"}, {$CellContext`step$$, 1, 
+         Dynamic[
+          Which[$CellContext`sort$$ == "shellsort", 
+           Length[$CellContext`liShell], $CellContext`sort$$ == "bubblesort", 
+           
+           Length[$CellContext`liBubble], $CellContext`sort$$ == 
+           "insertionsort", 
+           Length[$CellContext`liInsert], $CellContext`sort$$ == "cocktail", 
+           Length[$CellContext`liCocktail], $CellContext`sort$$ == "bogosort", 
+           Length[$CellContext`liBogo]]], 1, Appearance -> "Labeled", 
+         ControlType -> Animator, AnimationRunning -> 
+         False}, {{$CellContext`sort$$, "shellsort"}, {
+         "shellsort", "bubblesort", "insertionsort", "cocktail", "bogosort"}, 
+         ControlType -> SetterBar, ControlPlacement -> 1}, 
+        Row[{
+          Manipulate`Place[1], 
+          Spacer[20], 
+          Button[
+          "randomize", $CellContext`randomize[$CellContext`elements$$]; \
+$CellContext`step$$ = 2; $CellContext`step$$ = 1, ImageSize -> Automatic]}]}, 
+      "Options" :> {
+       TrackedSymbols :> {$CellContext`elements$$, $CellContext`step$$, \
+$CellContext`sort$$}}, "DefaultOptions" :> {}],
+     ImageSizeCache->{620., {277., 283.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`liShell = {{3, 9, 8, 4, 7, 10, 2, 1, 6, 
+        5}}, $CellContext`liBubble = CompressedData["
+1:eJxNxskNAkEMBMDxbXcSiJQIYRMg/x87AvXwKKme1/t16VrrccMtUDYtqR4F
+zsANuAYn4BKcgnOE1VkPJ8PlcDqcDyz+Js1lc9qc954Ul8VpcV57EmeanOee
+2JkG5/Gd2m8fVloIew==
+        "], $CellContext`bubblesort[
+         Pattern[$CellContext`step, 
+          Blank[]]] := BarChart[
+         Part[$CellContext`liBubble, $CellContext`step], ChartStyle -> 
+         "DarkRainbow", ImageSize -> {575, 400}], $CellContext`liInsert = {{3,
+         9, 8, 4, 7, 10, 2, 1, 6, 5}}, $CellContext`liCocktail = {{3, 9, 8, 4,
+         7, 10, 2, 1, 6, 5}}, $CellContext`randomize[
+         Pattern[$CellContext`n1, 
+          Blank[]]] := ($CellContext`li1 = RandomSample[
+           
+           Range[$CellContext`n1]]; $CellContext`liBubble = {}; \
+$CellContext`liBubble = 
+         Append[$CellContext`liBubble, $CellContext`li1]; $CellContext`BuSort[
+         
+          Part[$CellContext`liBubble, 1]]), $CellContext`li1 = {3, 9, 8, 4, 7,
+         10, 2, 1, 6, 5}, $CellContext`BuSort[
+         Pattern[$CellContext`array5, 
+          Blank[]]] := 
+       Module[{$CellContext`arr = $CellContext`array5, $CellContext`swapped = 
+          False, $CellContext`n = Length[$CellContext`array5]}, Do[
+           If[
+           Part[$CellContext`arr, $CellContext`i] > 
+            Part[$CellContext`arr, $CellContext`i + 1], $CellContext`temp = 
+             Part[$CellContext`arr, $CellContext`i]; 
+            Part[$CellContext`arr, $CellContext`i] = 
+             Part[$CellContext`arr, $CellContext`i + 1]; 
+            Part[$CellContext`arr, $CellContext`i + 
+               1] = $CellContext`temp; $CellContext`swapped = 
+             True; $CellContext`liBubble = 
+             Append[$CellContext`liBubble, $CellContext`arr]; 
+            Null], {$CellContext`i, 1, $CellContext`n - 1}]; 
+         While[$CellContext`swapped == True, $CellContext`swapped = False; 
+           Do[
+             If[
+             Part[$CellContext`arr, $CellContext`i] > 
+              Part[$CellContext`arr, $CellContext`i + 1], $CellContext`temp = 
+               Part[$CellContext`arr, $CellContext`i]; 
+              Part[$CellContext`arr, $CellContext`i] = 
+               Part[$CellContext`arr, $CellContext`i + 1]; 
+              Part[$CellContext`arr, $CellContext`i + 
+                 1] = $CellContext`temp; $CellContext`swapped = 
+               True; $CellContext`liBubble = 
+               Append[$CellContext`liBubble, $CellContext`arr]; 
+              Null], {$CellContext`i, 1, $CellContext`n - 
+              1}]]; $CellContext`arr], $CellContext`temp = 3}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.84815611136631*^9, 3.848156346955001*^9, 3.8481565286577587`*^9, 
+   3.848157932655781*^9, {3.848157988252281*^9, 3.8481580103190403`*^9}, 
+   3.8481586841436*^9, 3.848158754636858*^9, {3.848158950839898*^9, 
+   3.848158970066298*^9}},
+ CellLabel->"Out[96]=",ExpressionUUID->"3c395f2f-a81c-42f4-a0cb-38a88b74983b"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",ExpressionUUID->"9d74a288-e087-4706-bc23-ce9185baffde"],
+
+Cell[BoxData[""], "Input",ExpressionUUID->"0638e7fe-b05b-4bb1-ae16-a7641b496b07"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1434, 857},
+WindowMargins->{{Automatic, 105}, {Automatic, 30}},
+FrontEndVersion->"12.3 for Mac OS X ARM (64-bit) (July 9, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"39f571f0-0b1f-484a-8f00-0386f6ec372f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 190, 3, 98, "Title",ExpressionUUID->"63ba59d5-32a4-472f-9123-2c79995437e2"],
+Cell[773, 27, 81, 0, 30, "Input",ExpressionUUID->"87ed80e4-1e0d-421c-9eac-c046be8bc218"],
+Cell[CellGroupData[{
+Cell[879, 31, 254, 6, 53, "Subtitle",ExpressionUUID->"c224bc89-e79b-4a4e-85cb-35c52df77667"],
+Cell[CellGroupData[{
+Cell[1158, 41, 11026, 281, 1018, "Input",ExpressionUUID->"f068b1a4-ed65-4b9c-8826-9246450b7681"],
+Cell[12187, 324, 357, 9, 24, "Print",ExpressionUUID->"7d9a2d24-72af-4668-a9d3-ad3738a6cf9b"],
+Cell[12547, 335, 7798, 152, 579, "Output",ExpressionUUID->"3c395f2f-a81c-42f4-a0cb-38a88b74983b"]
+}, Open  ]],
+Cell[20360, 490, 81, 0, 30, "Input",ExpressionUUID->"9d74a288-e087-4706-bc23-ce9185baffde"],
+Cell[20444, 492, 81, 0, 30, "Input",ExpressionUUID->"0638e7fe-b05b-4bb1-ae16-a7641b496b07"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
